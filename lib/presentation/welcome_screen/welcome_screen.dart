@@ -3,7 +3,7 @@ import 'package:flutter_task_manager/core/app_export.dart';
 import 'package:flutter_task_manager/widgets/custom_elevated_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,10 @@ class WelcomeScreen extends StatelessWidget {
                       height: 103.v,
                       width: 106.h),
                   SizedBox(height: 62.v),
-                  _buildTitleSection(context),
+                  buildTitleSection(context),
                   Spacer(flex: 63),
                   CustomElevatedButton(
+                      key: Key('signup'),
                       width: 176.h,
                       text: "Sign up ",
                       onPressed: () {
@@ -29,27 +30,29 @@ class WelcomeScreen extends StatelessWidget {
                       }),
                   SizedBox(height: 40.v),
                   GestureDetector(
-                      onTap: () {
-                        onTapTxtAlreadyhavean(context);
-                      },
-                      child: RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                                text: "Already Have An Account ?",
-                                style: theme.textTheme.bodyLarge),
-                            TextSpan(text: " "),
-                            TextSpan(
-                                text: "Log in",
-                                style:
-                                    CustomTextStyles.titleLargeRobotoffffffff),
-                            TextSpan(text: " ")
-                          ]),
-                          textAlign: TextAlign.left))
+                    onTap: () {
+                      onTapTxtAlreadyhavean(context);
+                    },
+                    child: RichText(
+                      key: const Key('login'),
+                      text: TextSpan(children: [
+                        TextSpan(
+                            text: "Already Have An Account ?",
+                            style: theme.textTheme.bodyLarge),
+                        const TextSpan(text: " "),
+                        TextSpan(
+                            text: "Log in",
+                            style: CustomTextStyles.titleLargeRobotoffffffff),
+                        TextSpan(text: " ")
+                      ]),
+                      textAlign: TextAlign.left,
+                    ),
+                  )
                 ]))));
   }
 
   /// Section Widget
-  Widget _buildTitleSection(BuildContext context) {
+  Widget buildTitleSection(BuildContext context) {
     return Container(
         width: double.maxFinite,
         padding: EdgeInsets.symmetric(horizontal: 68.h, vertical: 4.v),
@@ -61,18 +64,19 @@ class WelcomeScreen extends StatelessWidget {
           Align(
               alignment: Alignment.centerRight,
               child: RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                        text: "Organize . ",
-                        style: CustomTextStyles.bodyMediumIrishGroverff858383),
-                    TextSpan(
-                        text: "Prioritize . ",
-                        style: CustomTextStyles.bodyMediumIrishGroverffffffff),
-                    TextSpan(
-                        text: "Accomplish",
-                        style: CustomTextStyles.bodyMediumIrishGroverff3785e6)
-                  ]),
-                  textAlign: TextAlign.left))
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Organize . ",
+                      style: CustomTextStyles.bodyMediumIrishGroverff858383),
+                  TextSpan(
+                      text: "Prioritize . ",
+                      style: CustomTextStyles.bodyMediumIrishGroverffffffff),
+                  TextSpan(
+                      text: "Accomplish",
+                      style: CustomTextStyles.bodyMediumIrishGroverff3785e6)
+                ]),
+                textAlign: TextAlign.left,
+              ))
         ]));
   }
 

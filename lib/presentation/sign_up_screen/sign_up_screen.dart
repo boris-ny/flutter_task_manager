@@ -40,6 +40,7 @@ class SignUpScreen extends StatelessWidget {
                             child:
                                 Stack(alignment: Alignment.center, children: [
                               Align(
+                                  key: ValueKey('sign up'),
                                   alignment: Alignment.center,
                                   child: Text("Create account".toUpperCase(),
                                       style: CustomTextStyles
